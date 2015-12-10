@@ -25,7 +25,7 @@ module Locomotive::Steam
 
     def order_by
       if (this_order_by = self[:order_by]).present?
-        name, direction = this_order_by.split
+        name, direction = this_order_by
         { name.to_sym => direction || 'asc' }
       else
         type == :has_many ? { :"position_in_#{self[:inverse_of]}" => 'asc' } : nil
